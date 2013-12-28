@@ -13,6 +13,7 @@ TARGET_NO_BOOTLOADER				:= true
 TARGET_NO_RADIOIMAGE				:= true
 
 # Partitions
+TARGET_USERIMAGES_USE_EXT4			:= true
 BOARD_BOOTIMAGE_PARTITION_SIZE			:= 5242880
 BOARD_RECOVERYIMAGE_PARTITION_SIZE		:= 5242880
 BOARD_SYSTEMIMAGE_PARTITION_SIZE		:= 241172480
@@ -22,7 +23,7 @@ BOARD_HAS_DOWNLOAD_MODE				:= true
 BOARD_HAS_SDCARD_INTERNAL			:= true
 
 # Kernel
-#BOARD_KERNEL_CMDLINE				:= console=ttyS0,115200n8 mem=362M kmemleak=off init=init root=/dev/ram0 rw mtdparts=bcm_umi-nand:256K@0K(bcm_boot),1536K@256K(bootloader)ro,1536K@1792K(loke)ro,512K@3328K(systemdata),512K@3840K(sysparm_dep),512K@4352K(umts_cal),15104K@4864K(modem),5M@19968K(param_lfs),2M@25088K(kpanic),6M@27136K(boot)ro,6M@33280K(boot_backup)ro,4M@39424K(recovery)ro,200M@43520K(system),70M@248320K(cache),192000K@320000K(userdata)rw,1M@500M(cal) androidboot.console=ttyS0 jtag
+BOARD_KERNEL_CMDLINE				:= console=ttyS0,115200n8 mem=362M kmemleak=off init=init root=/dev/ram0 rw mtdparts=bcm_umi-nand:256K@0K(bcm_boot),1536K@256K(bootloader)ro,1536K@1792K(loke)ro,512K@3328K(systemdata),512K@3840K(sysparm_dep),512K@4352K(umts_cal),15104K@4864K(modem),5M@19968K(param_lfs),2M@25088K(kpanic),6M@27136K(boot)ro,6M@33280K(boot_backup)ro,4M@39424K(recovery)ro,200M@43520K(system),70M@248320K(cache),192000K@320000K(userdata)rw,1M@500M(cal) androidboot.console=ttyS0 jtag
 BOARD_KERNEL_BASE				:= 0x81600000
 BOARD_KERNEL_PAGESIZE				:= 4096
 BOARD_NAND_PAGE_SIZE				:= 4096 -s 128
@@ -35,12 +36,10 @@ BOARD_LDPI_RECOVERY				:= true
 BOARD_RECOVERY_HANDLES_MOUNT			:= true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/cori/recovery/recovery_keys.c
 BOARD_CUSTOM_GRAPHICS				:= ../../../device/samsung/cori/recovery/graphics.c
-TARGET_RECOVERY_FSTAB				 = device/samsung/cori/recovery.fstab
+TARGET_RECOVERY_FSTAB				:= device/samsung/cori/recovery.fstab
 TARGET_RECOVERY_INITRC				:= device/samsung/cori/prebuilt/root/recovery.rc
 TARGET_PROVIDES_INIT_RC				:= true
 BOARD_HAS_NO_RECOVERY_PARTITION			:= true
-BOARD_RECOVERY_HANDLES_MOUNT			:= true
-BOARD_LDPI_RECOVERY				:= true
 
 # GPU
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION		:= true

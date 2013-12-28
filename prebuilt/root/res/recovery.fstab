@@ -6,10 +6,10 @@
 /data		ext4		/dev/block/mmcblk0p9		default		default
 
 
-[format]
+#[format]
 #index		option
-rfs16	"/sbin/fat.format -F 16 -s 8 -S 512"
-rfs32	"/sbin/fat.format -F 32 -s 4 -S 4096"
+#rfs16	"/sbin/fat.format -F 16 -s 8 -S 512"
+#rfs32	"/sbin/fat.format -F 32 -s 4 -S 4096"
 
 [mount]
 #index		flags					options
