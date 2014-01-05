@@ -26,8 +26,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(CORI_PATH)/recovery.fstab:root/recovery.fstab \
     $(CORI_PATH)/recovery.fstab:root/etc/recovery.fstab \
+    $(CORI_PATH)/recovery.fstab:recovery/root/etc/recovery.fstab \
     $(CORI_PREBUILT_ROOT_PATH)/default.prop:root/default.prop \
-    $(CORI_PREBUILT_ROOT_PATH)/fota.rc:root/fota.rc \
     $(CORI_PREBUILT_ROOT_PATH)/init:root/init \
     $(CORI_PREBUILT_ROOT_PATH)/init.bcm21553.rc:root/init.bcm21553.rc \
     $(CORI_PREBUILT_ROOT_PATH)/init.charge.rc:root/init.charge.rc \
@@ -39,7 +39,9 @@ PRODUCT_COPY_FILES += \
     $(CORI_PREBUILT_ROOT_PATH)/ueventd.rc:root/ueventd.rc \
 
 PRODUCT_COPY_FILES += \
-    $(CORI_PREBUILT_ROOT_PATH)/sbin/fota_logo.png:root/sbin/fota_logo.png \
+    $(CORI_PREBUILT_ROOT_PATH)/sbin/fix_permissions:root/sbin/fix_permissions \
+    $(CORI_PREBUILT_ROOT_PATH)/sbin/killrecovery.sh:root/sbin/killrecovery.sh \
+    $(CORI_PREBUILT_ROOT_PATH)/sbin/nandroid-md5.sh:root/sbin/nandroid-md5.sh \
 
 PRODUCT_COPY_FILES += \
     $(CORI_PREBUILT_ROOT_PATH)/res/recovery.fstab:root/res/recovery.fstab \

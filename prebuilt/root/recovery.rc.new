@@ -31,15 +31,13 @@ on early-fs
     insmod sec_param.ko
 
 on fs
-
-    cp /recovery.fstab /etc/recovery.fstab
     mount tmpfs tmpfs /tmp
     mount ext4 /dev/block/mmcblk0p7 /system
     mount ext4 /dev/block/mmcblk0p7 /system remount
 
     # verfiy filesystem (UMS)
     exec apply_system_policy /dev/block/mmcblk0p11 vfat
-
+    
 on post-fs
 
     write /proc/sys/kernel/panic_on_oops 1
@@ -69,8 +67,5 @@ service recovery /sbin/recovery
 service adbd /sbin/adbd recovery
 	disabled
 
-#on property:persist.service.adb.enable=1
-#    start adbd
-
-on property:persist.service.adb.enable=0
-    stop adbd
+on property:persist.service.adb.enable=1
+    start adbd

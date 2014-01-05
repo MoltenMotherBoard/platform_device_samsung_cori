@@ -31,8 +31,6 @@ on early-fs
     insmod sec_param.ko
 
 on fs
-
-    cp /recovery.fstab /etc/recovery.fstab
     mount tmpfs tmpfs /tmp
     mount ext4 /dev/block/mmcblk0p7 /system
     mount ext4 /dev/block/mmcblk0p7 /system remount
