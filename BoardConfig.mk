@@ -31,7 +31,7 @@ BOARD_PAGE_SIZE					:= 0x00001000
 TARGET_PREBUILT_KERNEL				:= device/samsung/cori/kernel
 
 # Recovery
-BOARD_USES_COMBINED_RECOVERY			:= true
+#BOARD_USES_COMBINED_RECOVERY			:= true
 BOARD_LDPI_RECOVERY				:= true
 BOARD_RECOVERY_HANDLES_MOUNT			:= true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING		:= ../../device/samsung/cori/recovery/recovery_keys.c
@@ -40,6 +40,8 @@ TARGET_RECOVERY_FSTAB				:= device/samsung/cori/recovery.fstab
 TARGET_RECOVERY_INITRC				:= device/samsung/cori/prebuilt/root/recovery.rc
 TARGET_PROVIDES_INIT_RC				:= true
 BOARD_HAS_NO_RECOVERY_PARTITION			:= true
+BOARD_CUSTOM_BOOTIMG_MK				:= device/samsung/cori/shbootimg.mk
+BOARD_CUSTOM_PROP_TARGET			:= device/samsung/cori/prebuilt/root/default.prop
 
 # GPU
 BOARD_AVOID_DRAW_TEXTURE_EXTENSION		:= true
