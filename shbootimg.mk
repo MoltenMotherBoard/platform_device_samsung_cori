@@ -26,6 +26,8 @@ $(TARGET_RECOVERY_ROOT_TIMESTAMP): $(INTERNAL_RECOVERY_FILES) \
 	cp -f $(recovery_initrc) $(TARGET_RECOVERY_ROOT_OUT)/
 	cp -f $(recovery_binary) $(TARGET_RECOVERY_ROOT_OUT)/sbin/
 	mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/system/bin
+	mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/lib
+	mkdir -p $(TARGET_RECOVERY_ROOT_OUT)/lib/modules
 	cp -rf $(recovery_resources_common) $(TARGET_RECOVERY_ROOT_OUT)/
 	$(foreach item,$(recovery_resources_private), \
 	  cp -rf $(item) $(TARGET_RECOVERY_ROOT_OUT)/)

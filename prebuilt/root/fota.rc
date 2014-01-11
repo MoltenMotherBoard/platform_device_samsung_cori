@@ -78,6 +78,3 @@ on boot
 
 service ueventd /sbin/ueventd
     critical
-
-service ua_launcher /sbin/ua_launcher
-    oneshot

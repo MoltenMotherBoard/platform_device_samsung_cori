@@ -2,8 +2,6 @@
 # Copyright (C) 2012 The Android Open Source Project #
 ######################################################
 
-import /init.environ.rc
-
 on early-init
     start ueventd
 
@@ -145,11 +143,6 @@ on fs
 
     # SEC_DMCRYPT efs or cache or lfs partition required
     exec apply_sec_devenc_init
-
-# use movinand second partition as /data. d.moskvitin
-    #temp
-    chown root root /sbin/fat.format
-    chmod 750 /sbin/fat.format
 
 
 # SEC_SECURITYLAB_LATONA_DEVICE_ENCRYPTION: add crypt option

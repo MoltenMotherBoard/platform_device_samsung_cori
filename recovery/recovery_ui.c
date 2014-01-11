@@ -30,6 +30,7 @@ char* MENU_ITEMS[] = { "reboot system now",
                        "backup and restore",
                        "mounts and storage",
                        "advanced",
+                       "power off",
                        NULL };
 
 int device_recovery_start() {
@@ -37,7 +38,15 @@ int device_recovery_start() {
 }
 
 int device_toggle_display(volatile char* key_pressed, int key_code) {
-    return key_pressed[KEY_MENU];
+    int alt = key_pressed[KEY_LEFTALT] || key_pressed[KEY_RIGHTALT];
+    if (alt && key_code == KEY_L)
+        return 1;
+    // allow toggling of the display if the correct key is pressed, and the display toggle is allowed or the display is currently off
+    if (ui_get_showing_back_button()) {
+        return 0;
+        //return get_allow_toggle_display() && (key_code == KEY_HOME || key_code == KEY_MENU || key_code == KEY_END);
+    }
+    return get_allow_toggle_display() && (key_code == KEY_HOME || key_code == KEY_MENU || key_code == KEY_POWER || key_code == KEY_END);
 }
 
 int device_reboot_now(volatile char* key_pressed, int key_code) {
@@ -47,7 +56,7 @@ int device_reboot_now(volatile char* key_pressed, int key_code) {
 int device_handle_key(int key_code, int visible) {
     if (visible) {
         switch (key_code) {
-	  case 115:
+            case 115:
 	    return HIGHLIGHT_UP;
 	  case 114:
 	    return HIGHLIGHT_DOWN;
@@ -55,40 +64,6 @@ int device_handle_key(int key_code, int visible) {
 	    return SELECT_ITEM;
 	  case 158:
 	    return GO_BACK;
-            /*case KEY_CAPSLOCK:
-            case KEY_DOWN:
-            case KEY_VOLUMEDOWN:
-                return HIGHLIGHT_DOWN;
-
-            case KEY_LEFTSHIFT:
-            case KEY_UP:
-            case KEY_VOLUMEUP:
-                return SELECT_ITEM;
-
-            case KEY_POWER:
-                return SELECT_ITEM;
-                break;
-            case KEY_LEFTBRACE:
-            case KEY_ENTER:
-            case BTN_MOUSE:
-            case KEY_CENTER:
-            case KEY_CAMERA:
-            case KEY_F21:
-            case KEY_SEND:
-            case KEY_HOME:
-                return SELECT_ITEM;
-            
-            case KEY_END:
-            case KEY_BACKSPACE:
-            case KEY_SEARCH:
-                if (ui_get_showing_back_button()) {
-                    return SELECT_ITEM;
-                }
-                if (!get_allow_toggle_display())
-                    return GO_BACK;
-            case KEY_BACK:
-            case KEY_MENU:
-                return GO_BACK;*/
         }
     }
 

@@ -22,16 +22,15 @@ PRODUCT_PACKAGES += \
     e2fsck \
     erase_image \
     flash_image \
+    tune2fs \
 
 PRODUCT_COPY_FILES += \
     $(CORI_PATH)/recovery.fstab:root/recovery.fstab \
-    $(CORI_PATH)/recovery.fstab:root/etc/recovery.fstab \
-    $(CORI_PATH)/recovery.fstab:recovery/root/etc/recovery.fstab \
     $(CORI_PREBUILT_ROOT_PATH)/default.prop:root/default.prop \
+    $(CORI_PREBUILT_ROOT_PATH)/fota.rc:root/fota.rc \
     $(CORI_PREBUILT_ROOT_PATH)/init:root/init \
     $(CORI_PREBUILT_ROOT_PATH)/init.bcm21553.rc:root/init.bcm21553.rc \
     $(CORI_PREBUILT_ROOT_PATH)/init.charge.rc:root/init.charge.rc \
-    $(CORI_PREBUILT_ROOT_PATH)/init.environ.rc:root/init.environ.rc \
     $(CORI_PREBUILT_ROOT_PATH)/init.rc:root/init.rc \
     $(CORI_PREBUILT_ROOT_PATH)/j4fs.ko:root/j4fs.ko \
     $(CORI_PREBUILT_ROOT_PATH)/recovery.rc:root/recovery.rc \
