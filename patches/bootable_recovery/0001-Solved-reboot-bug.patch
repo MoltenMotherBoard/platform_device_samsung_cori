@@ -1,0 +1,51 @@
+From 560a6e538edf2a804f10623d3622c8d4f2bc2274 Mon Sep 17 00:00:00 2001
+From: mackief <davidepucci21@gmail.com>
+Date: Sun, 9 Feb 2014 23:21:41 +0100
+Subject: [PATCH] Solved reboot bug Some Samsung devices need sending
+ "recovery_done" to tell bootloader that recovery operation
+ is finished.
+
+Without sending "recovery_done" the device will bootloop to recovery mode when reboot.
+
+Change-Id: I761e6ef6de47e1a6cfd609b2cea7f9282d0f6e15
+---
+ Android.mk |    2 +-
+ recovery.c |    9 ++++++++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/Android.mk b/Android.mk
+index f0779a1..5ec0513 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -43,7 +43,7 @@ LOCAL_CFLAGS += -DRECOVERY_VERSION="$(RECOVERY_VERSION)"
+ RECOVERY_API_VERSION := 2
+ LOCAL_CFLAGS += -DRECOVERY_API_VERSION=$(RECOVERY_API_VERSION)
+ 
+-BOARD_RECOVERY_DEFINES := BOARD_HAS_NO_SELECT_BUTTON BOARD_HAS_SMALL_RECOVERY BOARD_LDPI_RECOVERY BOARD_UMS_LUNFILE BOARD_RECOVERY_ALWAYS_WIPES BOARD_RECOVERY_HANDLES_MOUNT
++BOARD_RECOVERY_DEFINES := BOARD_HAS_NO_SELECT_BUTTON BOARD_HAS_SMALL_RECOVERY BOARD_LDPI_RECOVERY BOARD_UMS_LUNFILE BOARD_RECOVERY_ALWAYS_WIPES BOARD_RECOVERY_HANDLES_MOUNT BOARD_SEND_RECOVERY_DONE
+ 
+ $(foreach board_define,$(BOARD_RECOVERY_DEFINES), \
+   $(if $($(board_define)), \
+diff --git a/recovery.c b/recovery.c
+index ad1264a..7a465d6 100644
+--- a/recovery.c
++++ b/recovery.c
+@@ -968,7 +968,14 @@ main(int argc, char **argv) {
+     else
+         ui_print("Shutting down...\n");
+     sync();
+-    reboot((!poweroff) ? RB_AUTOBOOT : RB_POWER_OFF);
++	if (poweroff)
++	reboot(RB_POWER_OFF);
++	else
++#ifdef BOARD_SEND_RECOVERY_DONE
++        reboot_wrapper("recovery_done");
++#else
++ 	reboot(RB_AUTOBOOT);
++#endif
+     return EXIT_SUCCESS;
+ }
+ 
+-- 
+1.7.9.5
+
