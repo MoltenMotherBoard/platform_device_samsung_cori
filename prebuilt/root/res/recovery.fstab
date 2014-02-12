@@ -1,6 +1,0 @@
-[device]
-# mount point	fstype		device			format option	mount option
-/system		ext4		/dev/block/mmcblk0p7		default		default
-/cache		ext4		/dev/block/mmcblk0p8		default		default
-/sdcard		vfat		/dev/block/mmcblk0p11	default		default
-/data		ext4		/dev/block/mmcblk0p9		default		default

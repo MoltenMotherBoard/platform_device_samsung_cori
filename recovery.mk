@@ -41,6 +41,3 @@ PRODUCT_COPY_FILES += \
     $(CORI_PREBUILT_ROOT_PATH)/sbin/fix_permissions:root/sbin/fix_permissions \
     $(CORI_PREBUILT_ROOT_PATH)/sbin/killrecovery.sh:root/sbin/killrecovery.sh \
     $(CORI_PREBUILT_ROOT_PATH)/sbin/nandroid-md5.sh:root/sbin/nandroid-md5.sh \
-
-PRODUCT_COPY_FILES += \
-    $(CORI_PREBUILT_ROOT_PATH)/res/recovery.fstab:root/res/recovery.fstab \
