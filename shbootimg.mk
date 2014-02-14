@@ -38,5 +38,8 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) \
 	$(MINIGZIP) < $(recovery_uncompressed_ramdisk) > $(recovery_ramdisk)
 	$(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) --output $(INSTALLED_RECOVERYIMAGE_TARGET)
 	$(hide) $(call assert-max-image-size,$(INSTALLED_RECOVERYIMAGE_TARGET),$(BOARD_RECOVERYIMAGE_PARTITION_SIZE),raw)
-	$(hide) cp -f $(INSTALLED_RECOVERYIMAGE_TARGET) $@ 
+	$(hide) cp -f $(INSTALLED_RECOVERYIMAGE_TARGET) $@
+
+$(INSTALLED_RECOVERYIMAGE_TARGET): $(INSTALLED_BOOTIMAGE_TARGET)
+	$(hide) cp -f $(INSTALLED_BOOTIMAGE_TARGET) $@
 	@echo ----- Correctly compiled shbootimg.mk ------
