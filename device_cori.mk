@@ -14,10 +14,10 @@
 
 # Inherit products
 $(call inherit-product, device/samsung/bcm21553-common/common.mk)
-$(call inherit-product, vendor/samsung/tassve/vendor.mk)
+$(call inherit-product, vendor/samsung/cori/vendor.mk)
 
 # Add device package overlay
-DEVICE_PACKAGE_OVERLAYS += device/samsung/tassve/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/cori/overlay
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \

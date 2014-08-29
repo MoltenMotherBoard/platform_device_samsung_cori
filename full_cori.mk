@@ -22,12 +22,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_small.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full.mk)
 
 # Inherit device specific files
-$(call inherit-product, device/samsung/tassve/device_tassve.mk)
+$(call inherit-product, device/samsung/cori/device_cori.mk)
 
 # Overrides
-PRODUCT_NAME := full_tassve
-PRODUCT_DEVICE := tassve
+PRODUCT_NAME := full_cori
+PRODUCT_DEVICE := cori
 PRODUCT_BRAND := Samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := GT-S5570i
+PRODUCT_MODEL := GT-S5300
 PRODUCT_CHARACTERISTICS := phone

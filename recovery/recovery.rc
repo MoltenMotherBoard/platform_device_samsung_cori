@@ -1,4 +1,4 @@
-import init.recovery.gt-s5570iboard.rc
+import init.recovery.gt-s5300board.rc
 
 on early-init
     start ueventd

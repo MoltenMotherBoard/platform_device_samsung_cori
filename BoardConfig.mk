@@ -22,7 +22,7 @@ include device/samsung/bcm21553-common/BoardConfigCommon.mk
 
 # Board
 TARGET_BOARD_PLATFORM				:= bcm21553
-TARGET_BOOTLOADER_BOARD_NAME			:= tassve
+TARGET_BOOTLOADER_BOARD_NAME			:= cori
 
 # Recovery
 BOARD_BOOTIMAGE_PARTITION_SIZE			:= 7357568
@@ -31,10 +31,10 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE		:= 241172480
 BOARD_USERDATAIMAGE_PARTITION_SIZE		:= 206831616
 BOARD_FLASH_BLOCK_SIZE				:= 131072
 BOARD_USE_CUSTOM_RECOVERY_FONT			:= "<font_7x16.h>"
-TARGET_RECOVERY_INITRC				:= device/samsung/tassve/recovery/recovery.rc
+TARGET_RECOVERY_INITRC				:= device/samsung/cori/recovery/recovery.rc
 
 # Kernel config
-TARGET_KERNEL_CONFIG				:= cyanogenmod_tassve_defconfig
+TARGET_KERNEL_CONFIG				:= bcm21553_cori_defconfig
 
 # OTA Override
-TARGET_OTA_ASSERT_DEVICE			:= tassve,GT-S5570i,gt-s5570i
+TARGET_OTA_ASSERT_DEVICE			:= cori,GT-S5300,gt-s5300
