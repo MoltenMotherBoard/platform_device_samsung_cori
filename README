@@ -1,0 +1,9 @@
+Copyright 2014 - The CyanogenMod Project
+
+Device configuration for Samsung Galaxy Mini Turbo (GT-S5570i)
+
+TO-DO: 
+
+- Fix Ramdisk compression format. Now all is compiled fine but common kernel doesn't have gzip ramdisk compression enabled.
+
+See BCM21553 Common Repo for more

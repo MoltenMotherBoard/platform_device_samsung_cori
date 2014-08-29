@@ -1,0 +1,10 @@
+#
+# system.prop for GT-S5570i
+#
+
+# View configuration for QVGA.
+view.fading_edge_length=8
+view.touch_slop=15
+view.minimum_fling_velocity=25
+view.scroll_friction=0.008
+ro.max.fling_velocity=4000
