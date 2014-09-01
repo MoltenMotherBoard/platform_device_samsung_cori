@@ -32,6 +32,7 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE		:= 206831616
 BOARD_FLASH_BLOCK_SIZE				:= 4096
 BOARD_USE_CUSTOM_RECOVERY_FONT			:= "<font_7x16.h>"
 TARGET_RECOVERY_INITRC				:= device/samsung/cori/recovery/recovery.rc
+TARGET_RECOVERY_FSTAB				:= device/samsung/cori/recovery/recovery.fstab
 
 # Kernel config
 TARGET_KERNEL_CONFIG				:= bcm21553_cori_defconfig
